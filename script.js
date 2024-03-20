@@ -2,7 +2,7 @@ var wakeuptime = 7;
 var noon = 12;
 var lunchtime = 12;
 var naptime = lunchtime + 2;
-var partytime;
+var partytime = 24;
 var evening = 18;
 
 // Getting it to show the current time on the page
@@ -49,7 +49,7 @@ var updateClock = function () {
     var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg";
 
     var timeEventJS = document.getElementById("timeEvent");
-    var lolcatImageJS = document.getElementById('lolcatImage');
+    var Catimage = document.getElementById('Catimage');
 
     if (time == partytime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/partyTime.jpg";
@@ -82,7 +82,7 @@ var updateClock = function () {
 
     console.log(messageText);
     timeEventJS.innerText = messageText;
-    lolcatImage.src = image;
+    Catimage.src = image;
 
     showCurrentTime();
 };
@@ -94,7 +94,7 @@ setInterval(updateClock, oneSecond);
 
 
 // Getting the Party Time Button To Work
-var partyButton = document.getElementById("partyTimeButton");
+var partyTimeButton = document.getElementById("partyTimeButton");
 
 var partyEvent = function () {
     if (partytime < 0) {
@@ -109,7 +109,7 @@ var partyEvent = function () {
     }
 };
 
-partyButton.addEventListener("click", partyEvent);
+partyTimeButton.addEventListener("click", partyEvent());
 partyEvent();
 
 
