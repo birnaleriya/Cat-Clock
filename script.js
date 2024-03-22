@@ -34,9 +34,9 @@ var updateClock = function () {
     var image =
         "normaltime.jpg";
     var timeEventJS =
-        document.getElementsById("timeEvent");
+        document.getElementById("timeEvent");
     var CatimageJS =
-        document.getElementsById("Catimage");
+        document.getElementById("Catimage");
     if (time == partytime) {
         image =
             "party-image.jpg";

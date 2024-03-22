@@ -56,7 +56,7 @@ blockquote:before {
     content: '""';
 }
 
-blockquote::before {
+blockquote::after {
     content: '""';
 }
 
