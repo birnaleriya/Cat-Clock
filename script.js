@@ -1,6 +1,6 @@
 var wakeuptime = 7;
 var noon = 12;
-var lunchtime = 13;
+var lunchtime = 12;
 var naptime = lunchtime + 2;
 var partytime;
 var evening = 18;
@@ -13,8 +13,8 @@ var showCurrentTime = function () {
     var meridian = "AM";
     if (hours >= noon) {
         meridian = "PM";
-
     }
+
     if (hours > noon) {
         hours = hours - 12;
     }
@@ -24,91 +24,91 @@ var showCurrentTime = function () {
     if (seconds < 10) {
         seconds = "0" + seconds;
     }
-    var clockTime = hours + ':' + minutes + ':' +
-        seconds + " " + meridian + "!";
+    var clockTime = hours + ':' + minutes + ':' + seconds + " " + meridian + "!";
+
     clock.innerText = clockTime;
 };
 var updateClock = function () {
     var time = new Date().getHours();
     var messageText;
-    var image =
-        "normaltime.jpg";
-    var timeEventJS =
-        document.getElementById("timeEvent");
-    var CatimageJS =
-        document.getElementById("Catimage");
+    var image = "normaltime.jpg";
+
+    var timeEventJS = document.getElementById("timeEvent");
+    var lolcatImageJS = document.getElementById('lolcatImage');
+
     if (time == partytime) {
-        image =
-            "party-image.jpg";
-        messageText = "Party Time";
+        image = "party-image.jpg";
+        messageText = "Let's party!";
     }
     else if (time == wakeuptime) {
-        image =
-            "wakeup-cat.jpg";
-        messageText = "Wake-up!";
+        image = "wakeup-cat.jpg";
+        messageText = "Wake up!";
     }
     else if (time == lunchtime) {
-        image =
-            "lunchtime.jpg";
-        messageText = "LunchTime";
+        image = "lunch.jpeg";
+        messageText = "Let's have some lunch!";
     }
     else if (time == naptime) {
-        image =
-            "naptime.jpg";
-        messageText = "Nap-Time";
+        image = "nap.jpeg";
+        messageText = "Sleep tight!";
     }
     else if (time < noon) {
-        image =
-            "morning.jpg";
-        messageText = "GOOD MORNING";
+        image = "morning.jpg";
+        messageText = "Good morning!";
     }
     else if (time >= evening) {
-        image =
-            "evening.jpg";
-        messageText = "GOOD EVENING";
+        image = "evening.jpg";
+        messageText = "Good evening!";
     }
     else {
-        image =
-            "afternoon.jpeg";
-        messageText = "GOOD AFTERNOON";
+        image = "afternoon.jpg";
+        messageText = "Good afternoon!";
     }
+
     console.log(messageText);
     timeEventJS.innerText = messageText;
-    Catimage.src = image;
+    lolcatImage.src = image;
+
     showCurrentTime();
 };
 updateClock();
-var onesecond = 1000;
-setInterval(updateClock, onesecond);
+var oneSecond = 1000;
+setInterval(updateClock, oneSecond);
+var partyButton = document.getElementById("partyTimeButton");
+
 var partyEvent = function () {
     if (partytime < 0) {
-        partytime = new Date().getHours;
-        partyTimeButton.innerText = "Party Over";
-        partyTimeButton.style.backgroundColor =
-            "#0A8DAB";
+        partytime = new Date().getHours();
+        partyTimeButton.innerText = "Party Over!";
+        partyTimeButton.style.backgroundColor = "#0A8DAB";
     }
     else {
         partytime = -1;
-        partyTimeButton.innerText = "Party Time";
-        partyTimeButton.style.backgroundColor =
-            "#222";
+        partyTimeButton.innerText = "Party Time!";
+        partyTimeButton.style.backgroundColor = "#222";
     }
 };
+
 partyButton.addEventListener("click", partyEvent);
 partyEvent();
+var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
+
 var wakeUpEvent = function () {
-    wakeuptime = wakeupTimeSelector.value;
+    wakeuptime = wakeUpTimeSelector.value;
 };
-wakeupTimeSelector.addEventListener("change", wakeUpEvent);
-var lunchTimeSelector =
-    document.getElementById("lunchTimeSelector");
+
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
+var lunchTimeSelector = document.getElementById("lunchTimeSelector");
+
 var lunchEvent = function () {
-    lunchtime = lunchTimeSeletor.value;
+    lunchtime = lunchTimeSelector.value;
 };
+
 lunchTimeSelector.addEventListener("change", lunchEvent);
-var napTimeSelector =
-    document.getElementById("napTimeSelector");
+var napTimeSelector = document.getElementById("napTimeSelector");
+
 var napEvent = function () {
     naptime = napTimeSelector.value;
 };
+
 napTimeSelector.addEventListener("change", napEvent);
